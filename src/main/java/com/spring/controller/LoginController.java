@@ -27,7 +27,36 @@ public class LoginController
 		
 		
 		
-	
+		@RequestMapping(value="/signupp",method=RequestMethod.GET)
+		   public ModelAndView sign(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean)
+		   {
+		     ModelAndView model = new ModelAndView("login");
+		     //LoginBean loginBean = new LoginBean();
+		     model.addObject("loginBean", loginBean);
+		   
+		     request.setAttribute("message", "Sign Up ");
+		     
+		     
+		     return model;
+		   }
+		
+		
+		@RequestMapping(value="/mainpage",method=RequestMethod.POST)
+		   public ModelAndView main(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean)
+		   {
+		     
+			
+			ModelAndView model = new ModelAndView("mainpage");
+			model.addObject("mainpage", loginBean);
+			return model;
+
+			
+		     
+		   }
+		
+
+		
+		
 		
 	
 }
